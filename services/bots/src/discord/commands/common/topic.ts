@@ -17,11 +17,12 @@ export class CommandCommonTopic {
     // @ts-ignore not all channel types have topic
     const topic = interaction.channel.topic;
     await interaction.reply({
+      content: handlerDto.userMention,
       embeds: topic
         ? [
             {
               title: 'The topic of this channel is:',
-              description: [handlerDto.userMention, topic].join(' '),
+              description: topic,
             },
           ]
         : undefined,
