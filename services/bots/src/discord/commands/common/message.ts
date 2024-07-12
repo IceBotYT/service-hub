@@ -57,9 +57,10 @@ export class CommandCommonMessage {
     await this.serviceCommonMessageData.ensureData(interaction.guildId);
 
     await interaction.reply({
+      content: userMention,
       embeds: [
         new EmbedBuilder({
-          description: [userMention, message.content].join(' '),
+          description: message.content,
           title: message.title,
           image: message.image ? { url: message.image } : undefined,
           fields: message.fields?.length
